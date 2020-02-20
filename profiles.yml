@@ -1,0 +1,17 @@
+---
+IoT:
+    - RoboMaker
+
+Messaging:
+    - MQ
+
+Mobile:
+    - Cognito
+
+AI:
+    - Polly
+    - Amazon Translate
+
+DMS:
+    - Lambda
+...
