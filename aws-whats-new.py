@@ -1,4 +1,5 @@
-import sys, argparse, tempfile, webbrowser, feedparser, yaml
+import sys, time, argparse, tempfile, webbrowser, feedparser, yaml
+from datetime import datetime, timedelta
 from pathlib import Path
 
 # Parse CLI arguments
@@ -17,6 +18,12 @@ blog_posts_by_profile = {profile : [] for profile in PROFILES}
 blog_posts_by_profile['uncategorized'] = []
 
 for entry in feedparser.parse(RSS_FEED).entries:
+    # Ignore posts older than 1 week old
+    published = datetime.fromtimestamp(time.mktime(entry['published_parsed']))
+    delta = datetime.now() - published
+    if delta.days > 7:
+        continue
+
     title = entry['title']
     for profile in PROFILES:
         for service in PROFILES[profile]:
@@ -40,10 +47,19 @@ if settings.html:
 
         # Ensure bullet points are sorted by profile
         for profile in blog_posts_by_profile:
+            if profile == 'uncategorized':
+                continue
             for post in blog_posts_by_profile[profile]:
                 file.write('<li><a href="{}">[{}] {}</a></li>\n'.format(*post))
 
         file.write('</ul>\n')
+
+        file.write('<h3>Uncategorized Posts</h3>')
+        file.write('<ul>\n')
+        for (url, _, title) in blog_posts_by_profile['uncategorized']:
+            file.write('<li><a href="{}">{}</a></li>\n'.format(url, title))
+        file.write('</ul>\n')
+
 
     webbrowser.open(f'file://{html_file}')
 
