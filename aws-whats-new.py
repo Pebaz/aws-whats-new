@@ -26,12 +26,15 @@ for entry in feedparser.parse(RSS_FEED).entries:
 
     title = entry['title']
     for profile in PROFILES:
+        break_ = False
         for service in PROFILES[profile]:
             if service.lower() in title.lower():
                 blog_posts_by_profile[profile].append((
                     entry['link'], profile, title
                 ))
                 print(f'[{profile}]', title)
+                break_ = True
+        if break_: break
 
     else:
         blog_posts_by_profile['uncategorized'].append((

@@ -1,17 +1,86 @@
 ---
 IoT:
     - RoboMaker
+    - IoT
+    - Greengrass
+    - DeepLens
+    - FreeRTOS
+    - DeepRacer
 
 Messaging:
     - MQ
 
-Mobile:
-    - Cognito
+Analytics:
+    - Kinesis
+    - Kinesis Stream
+    - Kinesis Firehose
+    - Kinesis Analytics
+    - ElasticSearch
+    - CloudSearch
+    - Redshift
+    - QuickSight
+    - Kafka
+    - MSK
+    - Kendra
+    - Neptune
 
 AI:
     - Polly
     - Amazon Translate
+    - Lex
+    - Alexa for Business
+    - Translate
+    - Transcribe
+    - Rekognition
+    - Comprehend
+    - Textract
+    - Augmented AI
+    - CodeGuru
+    - Support API
 
 DMS:
     - Lambda
+    - API Gateway
+    - Serverless Repository
+    - Connect
+    - Step Functions
+    - Cloud9
+    - Cognito
+    - Device Farm
+    - AppSync
+    - Mobile Hub
+    - Amplify Console
+    - Lumberyard
+    - Sumerian
+    - GameSparks
+    - GameLift
+    - SNS
+    - Pinpoint
+    - Amazon MQ
+    - SWF
+    - SQS
+
+Networking:
+    - Global Accelerator
+
+Windows:
+    - EC2 Windows
+    - WorkSpaces
+    - Windows
+    - Systems Manager
+    - Directory Services
+    - Appstream
+    - WorkMail
+    - WorkLink
+    - WorkDocs
+    - VMImport
+    - Chime Client
+    - LightSail (Windows)
+    - CloudWatch Application Insights
+    - ImageBuilder
+    - End-of-life Migration Program
+
+Database:
+    - RDS
+    - Aurora
 ...
